@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<br>
+
+<div style="padding: 20px; margin: 0 auto;text-align: center;line-height: 20px;">
+    {% block navbar %}
+        <br>
+        <a href="/"> base 链接,navbar</a>
+        <br>
+        <a href="/index"> index 点我 </a>
+    {% endblock %}
+    <br>
+    <br>
+    <div> --- 割 ---</div>
+    <br>
+    <br>
+
+    {% block content %}
+        content,这是注定被覆盖的坟场。
+    {% endblock %}
+
+    <br>
+    <br>
+    <div> --- 割 ---</div>
+    <br>
+    <br>
+
+    {% block tail %}
+        balabala, tail
+    {% endblock %}
+</div>
+</body>
+</html>

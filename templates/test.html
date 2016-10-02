@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% include  'include_tpl.html' %}
+{% import 'import_tpl.html' as imptl %}
+
+{# import include 其实放在上面才比较代码风格正确哦, 这是 jinja 的注释#}
+
+{% block navbar %}
+    {{ super() }}
+    <br>
+    <span>看我上面,我保留了 base-navbar 的 链接</span>
+    <br>
+    <a href="/test" style="color: red"> 测试链接,看到更大的世界</a>
+{% endblock %}
+
+{% block content %}
+    <span> 看我上下,我把base-navbar 的内容覆盖啦</span>
+    <br>
+    <div> 钓鱼fish - {{ fish }} </div>
+    <div> 性价表 {{ item.price }} - {{ item['energy'] }}
+    </div>
+
+    <br>
+
+    {{ item.error if item.error else '我就是想给你看看这种奇葩的样子' }}
+
+
+    <br>
+    {% if hola %}
+        {{ hola }}
+    {% else %}
+        我就是想给你看看这种正常的样子
+    {% endif %}
+    <div> 水果表</div>
+    <ul>
+        {% for fruit in fruit_list %}
+            <li>{{ fruit }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
+
+
+
+{% block tail %}
+    <div>看我下面,我插入了另外一个html文件的内容</div>
+
+    {{ imptl }}
+
+    <div>我不认识上面那傻货,它从别的页面过来的。</div>
+{% endblock %}
+

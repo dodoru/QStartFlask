@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% include  'include_tpl.html' %}
+
+{% block navbar %}
+    {{ super() }}
+    <br>
+    <span>看我上面,我保留了 base-navbar 的 链接</span>
+    <br>
+    <a href="/test" style="color: cornflowerblue"> 这个链接 不是从 base 继承的来的</a>
+{% endblock %}
+
+{% block content %}
+    <span> 看我上下,我把base-navbar 的内容覆盖啦</span>
+{% endblock %}
+
+
+
+{% block tail %}
+    {% import 'import_tpl.html' as imptl %}
+    <span>看我下面,我插入了另外一个html文件的内容</span>
+    {{ imptl }}
+{% endblock %}
